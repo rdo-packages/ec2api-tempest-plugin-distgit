@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa963961_5c1af518",
+        "filename": "python-ec2api-tests-tempest.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2018-01-11T09:49:28Z",
+      "side": 1,
+      "message": "This package has syntax issues with python3 and ha no python3 gate job, so let\u0027s disable with_python until fixed to avoid FTBFS in fedora.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 22
+      },
+      "revId": "1179174b465239854e7e2affa602777af955750e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
