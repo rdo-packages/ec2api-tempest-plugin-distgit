@@ -1,7 +1,6 @@
 %global service ec2api
 %global plugin ec2api-tempest-plugin
 %global module ec2api_tempest_plugin
-%global with_doc 1
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -76,18 +75,6 @@ Requires:   python3-paramiko
 %{common_desc}
 %endif
 
-
-%if 0%{?with_doc}
-%package -n python-%{service}-tests-tempest-doc
-Summary:        python-%{service}-tests-tempest documentation
-
-BuildRequires:  python-sphinx
-BuildRequires:  python-openstackdocstheme
-
-%description -n python-%{service}-tests-tempest-doc
-It contains the documentation for the ec2api tempest plugin.
-%endif
-
 %prep
 %autosetup -n %{plugin}-%{upstream_version} -S git
 
@@ -101,13 +88,6 @@ rm -rf %{module}.egg-info
 %py3_build
 %endif
 %py2_build
-
-# Generate Docs
-%if 0%{?with_doc}
-%{__python2} setup.py build_sphinx -b html
-# remove the sphinx build leftovers
-rm -rf doc/build/html/.{doctrees,buildinfo}
-%endif
 
 %install
 %if 0%{?with_python3}
@@ -127,12 +107,6 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %doc README.rst
 %{python3_sitelib}/%{module}
 %{python3_sitelib}/*.egg-info
-%endif
-
-%if 0%{?with_doc}
-%files -n python-%{service}-tests-tempest-doc
-%doc doc/build/html
-%license LICENSE
 %endif
 
 %changelog
