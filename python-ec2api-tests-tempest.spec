@@ -40,10 +40,10 @@ BuildRequires:  python2-setuptools
 
 Obsoletes:   python-ec2-api-tests < 5.1.0
 
-Requires:   python2-tempest >= 1:17.2.0
-Requires:   python2-pbr >= 2.0.0
-Requires:   python2-oslo-config >= 2:4.0.0
-Requires:   python2-oslo-log >= 3.30.0
+Requires:   python2-tempest >= 1:18.0.0
+Requires:   python2-pbr >= 3.1.1
+Requires:   python2-oslo-config >= 2:5.2.0
+Requires:   python2-oslo-log >= 3.36.0
 Requires:   python2-botocore
 Requires:   python2-testtools
 Requires:   python2-six => 1.10.0
@@ -66,10 +66,10 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 BuildRequires:  python3-setuptools
 
-Requires:   python3-tempest >= 1:17.2.0
-Requires:   python3-pbr >= 2.0.0
-Requires:   python3-oslo-config >= 2:4.0.0
-Requires:   python3-oslo-log >= 3.30.0
+Requires:   python3-tempest >= 1:18.0.0
+Requires:   python3-pbr >= 3.1.1
+Requires:   python3-oslo-config >= 2:5.2.0
+Requires:   python3-oslo-log >= 3.36.0
 Requires:   python3-botocore
 Requires:   python3-testtools
 Requires:   python3-six => 1.10.0
