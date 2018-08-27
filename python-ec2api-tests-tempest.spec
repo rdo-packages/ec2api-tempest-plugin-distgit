@@ -19,8 +19,8 @@ Additionally it provides a plugin to automatically load these \
 tests into Tempest.
 
 Name:       python-%{service}-tests-tempest
-Version:    0.0.1
-Release:    0.2%{?alphatag}%{?dist}
+Version:    0.1.0
+Release:    1%{?alphatag}%{?dist}
 Summary:    Tempest Integration of EC2-API Project
 License:    ASL 2.0
 URL:        https://git.openstack.org/cgit/openstack/%{plugin}/
@@ -120,5 +120,8 @@ rm -rf %{module}.egg-info
 %endif
 
 %changelog
+* Mon Aug 27 2018 RDO <dev@lists.rdoproject.org> 0.1.0-1.ba836d4git
+- Update to 0.1.0
+
 * Thu Aug 23 2018 Chandan Kumar <chkumar@redhat.com> 0.0.1-0.2.ba836d42git
 - Update to pre-release 0.0.1 (ba836d429f38ce0831cf336feb2a620fdcf3efcb)
