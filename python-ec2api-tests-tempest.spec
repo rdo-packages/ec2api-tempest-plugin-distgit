@@ -1,13 +1,19 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %global service ec2api
 %global plugin ec2api-tempest-plugin
 %global module ec2api_tempest_plugin
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
-
-%if 0%{?fedora}
-# Disabling Python3 subpackage as ec2api tempest plugin is not ready for python3
-%global with_python3 0
-%endif
 
 %global common_desc \
 This package contains Tempest tests to cover the EC2 API project. \
@@ -31,55 +37,34 @@ BuildRequires:  openstack-macros
 %description
 %{common_desc}
 
-%package -n python2-%{service}-tests-tempest
+%package -n python%{pyver}-%{service}-tests-tempest
 Summary: %{summary}
-%{?python_provide:%python_provide python2-%{service}-tests-tempest}
-BuildRequires:  python2-devel
-BuildRequires:  python2-pbr
-BuildRequires:  python2-setuptools
+%{?python_provide:%python_provide python%{pyver}-%{service}-tests-tempest}
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python%{pyver}-setuptools
 
 Obsoletes:   python-ec2-api-tests < 5.1.0
 
-Requires:   python2-tempest >= 1:18.0.0
-Requires:   python2-pbr >= 3.1.1
-Requires:   python2-oslo-config >= 2:5.2.0
-Requires:   python2-oslo-log >= 3.36.0
-Requires:   python2-botocore
-Requires:   python2-testtools
-Requires:   python2-six => 1.10.0
-%if 0%{?fedora} > 0
-Requires:   python2-lxml
-%else
+Requires:   python%{pyver}-tempest >= 1:18.0.0
+Requires:   python%{pyver}-pbr >= 3.1.1
+Requires:   python%{pyver}-oslo-config >= 2:5.2.0
+Requires:   python%{pyver}-oslo-log >= 3.36.0
+Requires:   python%{pyver}-botocore
+Requires:   python%{pyver}-testtools
+Requires:   python%{pyver}-six => 1.10.0
+Requires:   python%{pyver}-netaddr
+Requires:   python%{pyver}-paramiko
+
+# Handle python2 exception
+%if %{pyver} == 2
 Requires:   python-lxml
+%else
+Requires:   python%{pyver}-lxml
 %endif
-Requires:   python2-netaddr
-Requires:   python2-paramiko
 
-%description -n python2-%{service}-tests-tempest
+%description -n python%{pyver}-%{service}-tests-tempest
 %{common_desc}
-
-%if 0%{?with_python3}
-%package -n python3-%{service}-tests-tempest
-Summary: %{summary}
-%{?python_provide:%python_provide python3-%{service}-tests-tempest}
-BuildRequires:  python3-devel
-BuildRequires:  python3-pbr
-BuildRequires:  python3-setuptools
-
-Requires:   python3-tempest >= 1:18.0.0
-Requires:   python3-pbr >= 3.1.1
-Requires:   python3-oslo-config >= 2:5.2.0
-Requires:   python3-oslo-log >= 3.36.0
-Requires:   python3-botocore
-Requires:   python3-testtools
-Requires:   python3-six => 1.10.0
-Requires:   python3-lxml
-Requires:   python3-netaddr
-Requires:   python3-paramiko
-
-%description -n python3-%{service}-tests-tempest
-%{common_desc}
-%endif
 
 %prep
 %autosetup -n %{plugin}-%{upstream_version} -S git
@@ -90,29 +75,15 @@ Requires:   python3-paramiko
 rm -rf %{module}.egg-info
 
 %build
-%if 0%{?with_python3}
-%py3_build
-%endif
-%py2_build
+%{pyver_build}
 
 %install
-%if 0%{?with_python3}
-%py3_install
-%endif
-%py2_install
+%{pyver_install}
 
-%files -n python2-%{service}-tests-tempest
+%files -n python%{pyver}-%{service}-tests-tempest
 %license LICENSE
 %doc README.rst
-%{python2_sitelib}/%{module}
-%{python2_sitelib}/*.egg-info
-
-%if 0%{?with_python3}
-%files -n python3-%{service}-tests-tempest
-%license LICENSE
-%doc README.rst
-%{python3_sitelib}/%{module}
-%{python3_sitelib}/*.egg-info
-%endif
+%{pyver_sitelib}/%{module}
+%{pyver_sitelib}/*.egg-info
 
 %changelog
