@@ -1,4 +1,3 @@
-%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %global service ec2api
 %global plugin ec2api-tempest-plugin
@@ -48,16 +47,16 @@ BuildRequires:  python3-setuptools
 Obsoletes:   python-ec2-api-tests < 5.1.0
 
 Requires:   python3-tempest >= 1:18.0.0
-Requires:   python3-pbr >= 3.1.1
+Requires:   python3-pbr >= 2.0.0
 Requires:   python3-oslo-config >= 2:5.2.0
 Requires:   python3-oslo-log >= 3.36.0
-Requires:   python3-botocore
-Requires:   python3-testtools
-Requires:   python3-six => 1.10.0
-Requires:   python3-netaddr
-Requires:   python3-paramiko
+Requires:   python3-botocore >= 1.5.1
+Requires:   python3-testtools >= 2.2.0
+Requires:   python3-six >= 1.10.0
+Requires:   python3-netaddr >= 0.7.18
+Requires:   python3-paramiko >= 2.0.0
 
-Requires:   python3-lxml
+Requires:   python3-lxml >= 3.4.1
 
 %description -n python3-%{service}-tests-tempest
 %{common_desc}
