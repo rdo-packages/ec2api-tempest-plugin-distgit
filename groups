@@ -4,6 +4,6 @@ global:Registered-Users	Registered Users
 4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
 df279b0aabc3773631bf7ea6945b1b2efe8f6f68	openstack/ec2api-tempest-plugin-core
 09d34844c45479d0350b97c77284105c5cc38d86	openstack/ec2api-tempest-plugin-ptl
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Service Users
 global:Anonymous-Users	Anonymous Users
 401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
