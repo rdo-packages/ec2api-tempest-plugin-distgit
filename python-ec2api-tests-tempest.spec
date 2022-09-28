@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 %global service ec2api
 %global plugin ec2api-tempest-plugin
 %global module ec2api_tempest_plugin
@@ -12,8 +12,8 @@ Additionally it provides a plugin to automatically load these \
 tests into Tempest.
 
 Name:       python-%{service}-tests-tempest
-Version:    XXX
-Release:    XXX
+Version:    1.5.0
+Release:    1%{?dist}
 Summary:    Tempest Integration of EC2-API Project
 License:    ASL 2.0
 URL:        https://git.openstack.org/cgit/openstack/%{plugin}/
@@ -87,3 +87,6 @@ rm -rf %{module}.egg-info
 %{python3_sitelib}/*.egg-info
 
 %changelog
+* Wed Sep 28 2022 RDO <dev@lists.rdoproject.org> 1.5.0-1
+- Update to 1.5.0
+
