@@ -1,9 +1,9 @@
 # UUID Group Name
 global:Registered-Users	Registered Users
-05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
 4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
-09d34844c45479d0350b97c77284105c5cc38d86	openstack/ec2api-tempest-plugin-ptl
-global:Anonymous-Users	Anonymous Users
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Service Users
 401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Service Users
 df279b0aabc3773631bf7ea6945b1b2efe8f6f68	openstack/ec2api-tempest-plugin-core
+05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
+global:Anonymous-Users	Anonymous Users
+09d34844c45479d0350b97c77284105c5cc38d86	openstack/ec2api-tempest-plugin-ptl
